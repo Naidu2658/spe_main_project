@@ -2,9 +2,12 @@ package com.example.spe_main_project.service;
 
 
 import com.example.spe_main_project.dto.AuthRequest;
+import com.example.spe_main_project.dto.CreateLabDto;
 import com.example.spe_main_project.dto.FacultyRegistrationDto;
 import com.example.spe_main_project.entity.faculty_info;
+import com.example.spe_main_project.entity.lab_info;
 import com.example.spe_main_project.repo.faculty_info_repo;
+import com.example.spe_main_project.repo.lab_info_repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,9 @@ public class facultyService {
 
     @Autowired
     private faculty_info_repo facultyInfoRepo;
+
+    @Autowired
+    private lab_info_repo labInfoRepo;
 
     public String registerFaculty(FacultyRegistrationDto facultyRegistrationDto)
     {
@@ -51,6 +57,32 @@ public class facultyService {
             }
         }
         return null;
+    }
+
+    public String createlab(CreateLabDto createLabDto)
+    {
+        lab_info labinfo = new lab_info();
+        try
+        {
+            labinfo.setFaculty_mail(createLabDto.getFaculty_mail());
+            labinfo.setDescription(createLabDto.getDescription());
+            labinfo.setClass_id(createLabDto.getClass_id());
+            labinfo.setFile(createLabDto.getFile().getBytes());
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        try
+        {
+            labInfoRepo.save(labinfo);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+        return null;
+
     }
 
 }

@@ -24,10 +24,26 @@ public class faculty_controller {
     }
 
     @PostMapping(value="/faculty-login")
-        public ResponseEntity<?> faculty_login(@RequestBody AuthRequest authrequest)
-        {
-          String id= facultyservice.loginfaculty(authrequest);
-          return ResponseEntity.ok(id);
-        }
+    public ResponseEntity<?> faculty_login(@RequestBody AuthRequest authrequest)
+    {
+        String id= facultyservice.loginfaculty(authrequest);
+        return ResponseEntity.ok(id);
+    }
+
+    @PostMapping(value = "/create_lab")
+    public ResponseEntity<?> create_lab(@RequestBody CreateLabDto createLabDto)
+    {
+//        if(!createLabDto.getFile().isEmpty())
+//        {
+//            try
+//            {
+//                byte[] bytes= createLabDto.getFile().getBytes();
+//                String
+//            }
+//        }
+
+        String id=facultyservice.createlab(createLabDto);
+        return ResponseEntity.ok(id);
+    }
 
 }
