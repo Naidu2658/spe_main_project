@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class CreateLabDto {
 
     private String class_id;
-
     private String description;
     private String faculty_mail;
     private MultipartFile file;

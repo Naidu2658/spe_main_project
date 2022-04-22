@@ -1,5 +1,6 @@
 package com.example.spe_main_project.service;
 
+import com.example.spe_main_project.dto.AuthRequestStudentDto;
 import com.example.spe_main_project.dto.StudentRegisterDto;
 import com.example.spe_main_project.entity.student_info;
 import com.example.spe_main_project.repo.student_info_repo;
@@ -23,6 +24,23 @@ public class studentService {
                 studentInfoRepo.save(studentInfo);
             }
             catch (Exception e)
+            {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public String login(AuthRequestStudentDto authRequestStudentDto)
+    {
+        student_info studentInfo=studentInfoRepo.getstudentbymail(authRequestStudentDto.getStudent_mail());
+        if(studentInfo!=null)
+        {
+            if(authRequestStudentDto.getPassword()==studentInfo.getPassword())
+            {
+                return "yes";
+            }
+            else
             {
                 return null;
             }
