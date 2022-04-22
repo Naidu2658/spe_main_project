@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="lab_info")
@@ -27,5 +28,6 @@ public class lab_info {
     @Lob
     @Column
     private byte[] file;
+
 
 }
