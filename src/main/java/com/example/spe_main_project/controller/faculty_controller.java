@@ -19,7 +19,15 @@ public class faculty_controller {
     @PostMapping(value="/register-faculty")
     public ResponseEntity<?> faculty_register(@RequestBody FacultyRegistrationDto facultyregistrationdto)
     {
-        String id=facultyservice.registerFculty(facultyregistrationdto);
+        String id=facultyservice.registerFaculty(facultyregistrationdto);
         return ResponseEntity.ok(id);
     }
+
+    @PostMapping(value="/faculty-login")
+        public ResponseEntity<?> faculty_login(@RequestBody AuthRequest authrequest)
+        {
+          String id= facultyservice.loginfaculty(authrequest);
+          return ResponseEntity.ok(id);
+        }
+
 }
