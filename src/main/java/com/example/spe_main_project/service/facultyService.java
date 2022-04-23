@@ -66,7 +66,7 @@ public class facultyService {
         {
             labinfo.setFaculty_mail(createLabDto.getFaculty_mail());
             labinfo.setDescription(createLabDto.getDescription());
-            labinfo.setClass_id(createLabDto.getClass_id());
+            labinfo.setCourse_name(createLabDto.getCourse_name());
             labinfo.setFile(createLabDto.getFile().getBytes());
         }
         catch(Exception e)

@@ -20,7 +20,7 @@ public class lab_info {
     private String description;
 
     @Column
-    private String class_id;
+    private String course_name;
 
     @Column
     private String faculty_mail;

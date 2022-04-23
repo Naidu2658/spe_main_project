@@ -5,21 +5,19 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name="faculty_info")
+@Table(name="course_student_mapping_info")
 @Data
-public class faculty_info {
+public class course_student_mapping_info {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private String faculty_id;
+    private String course_student_mapping_id;
 
     @Column
-    private String faculty_mail;
+    private String course_name;
 
     @Column
-    private String faculty_name;
+    private String student_mail;
 
-    @Column
-    private String faculty_password;
 }

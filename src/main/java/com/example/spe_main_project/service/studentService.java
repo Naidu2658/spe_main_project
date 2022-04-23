@@ -3,13 +3,26 @@ package com.example.spe_main_project.service;
 import com.example.spe_main_project.dto.AuthRequestStudentDto;
 import com.example.spe_main_project.dto.StudentRegisterDto;
 import com.example.spe_main_project.entity.student_info;
+import com.example.spe_main_project.repo.course_student_mapping_info_repo;
+import com.example.spe_main_project.repo.lab_info_repo;
 import com.example.spe_main_project.repo.student_info_repo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Service
 public class studentService {
 
+    @Autowired
     private student_info_repo studentInfoRepo;
+
+    @Autowired
+    private course_student_mapping_info_repo courseStudentMappingInfoRepo;
+
+    @Autowired
+    private lab_info_repo labInfoRepo;
 
     public String register(StudentRegisterDto studentRegisterDto)
     {
@@ -46,5 +59,17 @@ public class studentService {
             }
         }
         return null;
+    }
+
+    public List<String> viewCourses(String student_mail)
+    {
+       List<String> courses=courseStudentMappingInfoRepo.getcoursebystudentmail(student_mail);
+       return courses;
+    }
+
+    public List<MultipartFile> viewTasks(String student_mail, String course_name)
+    {
+       List<MultipartFile> tasks=labInfoRepo.getlabbycoursename(course_name);
+       return tasks;
     }
 }
