@@ -14,7 +14,7 @@ public class lab_info {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private String lab_id;
+    private int lab_id;
 
     @Column
     private String description;
