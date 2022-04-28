@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface course_student_mapping_info_repo extends JpaRepository<course_student_mapping_info, String> {
+public interface course_student_mapping_info_repo extends JpaRepository<course_student_mapping_info, Integer> {
 
     @Query(value = "select course_name from course_student_mapping_info  where studnet_mail=?1", nativeQuery = true)
     List<String> getcoursebystudentmail(String student_mail);

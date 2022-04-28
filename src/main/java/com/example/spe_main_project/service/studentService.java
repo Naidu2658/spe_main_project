@@ -3,6 +3,7 @@ package com.example.spe_main_project.service;
 import com.example.spe_main_project.dto.AuthRequestStudentDto;
 import com.example.spe_main_project.dto.StudentRegisterDto;
 import com.example.spe_main_project.dto.ViewCoursesResponseDto;
+import com.example.spe_main_project.entity.lab_info;
 import com.example.spe_main_project.entity.student_info;
 import com.example.spe_main_project.repo.course_student_mapping_info_repo;
 import com.example.spe_main_project.repo.lab_info_repo;
@@ -70,9 +71,9 @@ public class studentService {
        return viewCoursesResponseDto;
     }
 
-    public List<MultipartFile> viewTasks(String student_mail, String course_name)
+    public List<lab_info> viewTasks(String student_mail, String course_name)
     {
-       List<MultipartFile> tasks=labInfoRepo.getlabbycoursename(course_name);
+       List<lab_info> tasks=labInfoRepo.getlabbycoursename(course_name);
        return tasks;
     }
 }

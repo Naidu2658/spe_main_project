@@ -12,7 +12,7 @@ public class course_info {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
+    private Integer Id;
 
     @Column
     private String course_id;

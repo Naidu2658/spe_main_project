@@ -14,7 +14,7 @@ public class lab_info {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private int lab_id;
+    private Integer lab_id;
 
     @Column
     private String description;
@@ -24,6 +24,9 @@ public class lab_info {
 
     @Column
     private String faculty_mail;
+
+    @Column
+    private String file_type;
 
     @Lob
     @Column
