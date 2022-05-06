@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class course_student_mapping_info {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer course_student_mapping_id;
 

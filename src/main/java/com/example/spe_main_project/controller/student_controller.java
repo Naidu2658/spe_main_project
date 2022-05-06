@@ -1,6 +1,7 @@
 package com.example.spe_main_project.controller;
 
 import com.example.spe_main_project.dto.AuthRequestStudentDto;
+import com.example.spe_main_project.dto.StudentCourseRegistrationDto;
 import com.example.spe_main_project.dto.StudentRegisterDto;
 import com.example.spe_main_project.dto.ViewCoursesResponseDto;
 import com.example.spe_main_project.entity.lab_info;
@@ -22,6 +23,7 @@ public class student_controller {
     @PostMapping(value = "/studentregistration")
     public ResponseEntity<?> registerStudent(@RequestBody StudentRegisterDto studentRegisterDto)
     {
+        System.out.println(studentRegisterDto);
        String id=studentservice.register(studentRegisterDto);
        return ResponseEntity.ok(id);
     }
@@ -32,6 +34,14 @@ public class student_controller {
         String id=studentservice.login(authRequestStudentDto);
         return ResponseEntity.ok(id);
     }
+
+    @PostMapping(value= "/studentcourseregistration")
+    public ResponseEntity<?> student_course_registration(@RequestBody StudentCourseRegistrationDto studentCourseRegistrationDto)
+    {
+        String id= studentservice.studentcourseregisteration(studentCourseRegistrationDto);
+        return ResponseEntity.ok(id);
+    }
+
 
     @GetMapping(value = "/viewcourses/{student_mail}")
     public ResponseEntity<?> viewcourses(@PathVariable("student_mail") String student_mail)

@@ -65,44 +65,18 @@ public class faculty_controller {
         return ResponseEntity.ok("id");
     }
 
-//    @GetMapping(value = "/viewlab/{course_name}/{faculty_mail}")
-//    public void view_lab(@PathVariable("course_name") String course_name, @PathVariable("faculty_mail") String faculty_mail, HttpServletResponse response)
-//    {
-////        System.out.println("inside view lalb");
-//   //     List<lab_info> files=new ArrayList<>();
-//          lab_info files=facultyservice.viewlab(course_name, faculty_mail);
-//
-//        try {
-//            File file = new File("src/main/resources/targetFile.tmp");
-//            InputStream inputStream = new FileInputStream(file);
-//            response.setContentType("application/force-download");
-//            response.setHeader("Content-Disposition", "attachment; filename="+file+".txt");
-//            IOUtils.copy(inputStream, response.getOutputStream());
-//            response.flushBuffer();
-//            inputStream.close();
-//        } catch (Exception e){
-//            //LOGGER.debug("Request could not be completed at this moment. Please try again.");
-//            e.printStackTrace();
-//        }
-////        System.out.println(files);
-//        //return ResponseEntity.ok("fine");
-//    }
-
     @GetMapping(value = "/viewlab/{course_name}/{faculty_mail}")
-    public void view_lab( @PathVariable("course_name") String course_name, @PathVariable("faculty_mail") String faculty_mail,HttpServletResponse response) throws IOException {
+    public void view_lab(@PathVariable("course_name") String course_name, @PathVariable("faculty_mail") String faculty_mail, HttpServletResponse response)
+    {
 //        System.out.println("inside view lalb");
-        //     List<lab_info> files=new ArrayList<>();
-        lab_info files=facultyservice.viewlab(course_name, faculty_mail);
-        File file = new File("src/main/resources/targetFile.tmp");
+   //     List<lab_info> files=new ArrayList<>();
+          lab_info files=facultyservice.viewlab(course_name, faculty_mail);
 
-        try (OutputStream os = new FileOutputStream(file)) {
-            os.write(files.getFile());
-        }
         try {
-            File file1 = new File("src/main/resources/targetFile.tmp");
-            InputStream inputStream = new FileInputStream(file1);
-            response.setContentType("application/octet-stream");
-            response.setHeader("Content-Disposition", "attachment; filename="+file1+".txt");
+            File file = new File("src/main/resources/targetFile.tmp");
+            InputStream inputStream = new FileInputStream(file);
+            response.setContentType("application/force-download");
+            response.setHeader("Content-Disposition", "attachment; filename="+file+".txt");
             IOUtils.copy(inputStream, response.getOutputStream());
             response.flushBuffer();
             inputStream.close();
@@ -113,5 +87,31 @@ public class faculty_controller {
 //        System.out.println(files);
         //return ResponseEntity.ok("fine");
     }
+//
+//    @GetMapping(value = "/viewlab/{course_name}/{faculty_mail}")
+//    public void view_lab( @PathVariable("course_name") String course_name, @PathVariable("faculty_mail") String faculty_mail,HttpServletResponse response) throws IOException {
+////        System.out.println("inside view lalb");
+//        //     List<lab_info> files=new ArrayList<>();
+//        lab_info files=facultyservice.viewlab(course_name, faculty_mail);
+//        File file = new File("src/main/resources/targetFile.tmp");
+//
+//        try (OutputStream os = new FileOutputStream(file)) {
+//            os.write(files.getFile());
+//        }
+//        try {
+//            File file1 = new File("src/main/resources/targetFile.tmp");
+//            InputStream inputStream = new FileInputStream(file1);
+//            response.setContentType("application/octet-stream");
+//            response.setHeader("Content-Disposition", "attachment; filename="+file1+".txt");
+//            IOUtils.copy(inputStream, response.getOutputStream());
+//            response.flushBuffer();
+//            inputStream.close();
+//        } catch (Exception e){
+//            //LOGGER.debug("Request could not be completed at this moment. Please try again.");
+//            e.printStackTrace();
+//        }
+////        System.out.println(files);
+//        //return ResponseEntity.ok("fine");
+//    }
 
 }
