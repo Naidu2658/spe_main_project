@@ -47,6 +47,7 @@ public class student_controller {
     public ResponseEntity<?> viewcourses(@PathVariable("student_mail") String student_mail)
     {
         ViewCoursesResponseDto viewCoursesResponseDto=studentservice.viewCourses(student_mail);
+        System.out.println("yes");
         return ResponseEntity.ok(viewCoursesResponseDto);
     }
 
