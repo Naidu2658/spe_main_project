@@ -59,7 +59,7 @@ public class facultyService {
         {
             if(facultyInfo.getFaculty_password()== authrequest.getPassword())
             {
-                return "yes";
+                return "login was succesfull";
             }
             else
             {

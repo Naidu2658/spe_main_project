@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"*"})
-public class student_controller {
+public class Studentcontroller {
 
     @Autowired
     private studentService studentservice;

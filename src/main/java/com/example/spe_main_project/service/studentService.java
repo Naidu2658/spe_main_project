@@ -56,7 +56,7 @@ public class studentService {
         {
             if(authRequestStudentDto.getPassword()==studentInfo.getPassword())
             {
-                return "yes";
+                return "student login succesfull";
             }
             else
             {
