@@ -14,7 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"*"})
+//@CrossOrigin(origins = {"/*"})
+@CrossOrigin(allowedHeaders = "*")
 public class Studentcontroller {
 
     @Autowired
