@@ -43,10 +43,10 @@ public class studentService {
             }
             catch (Exception e)
             {
-                return null;
+                return "student registration fail";
             }
         }
-        return null;
+        return "student registration success";
     }
 
     public String login(AuthRequestStudentDto authRequestStudentDto)
@@ -56,14 +56,15 @@ public class studentService {
         {
             if(authRequestStudentDto.getPassword()==studentInfo.getPassword())
             {
+                System.out.println(authRequestStudentDto.toString());
                 return "student login succesfull";
             }
             else
             {
-                return null;
+                return "login failed";
             }
         }
-        return null;
+        return "you are not registered";
     }
 
     public String studentcourseregisteration(StudentCourseRegistrationDto studentCourseRegistrationDto)
